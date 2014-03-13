@@ -1,0 +1,51 @@
+---
+title: Centos中压缩(zip)和解压(unzip)命令
+author: windea
+layout: post
+permalink: /archives/156.html
+categories:
+  - Linux
+---
+# Centos中压缩(zip)和解压(unzip)命令
+
+在用ftp软件备份数据的时候，由于文件太多导致耗费许多时间，所以需要用压缩和解压的命令，列如，我需要备份/opt/data文件夹，但是由于data里面文件数目有几万个，这个时候就需要用zip命令，见data文件压缩后在传输：
+
+> cd /opt
+> 
+> zip -r data.zip data
+
+OK，将data文件压缩成了data.zip格式了，这是上传下载就很快了。同样的道理，将压缩文件传到centos里面时，可以用unzip解压文件；列如，将/opt/data.zip解压，就可以用如下命令：
+
+> cd /opt
+> 
+> unzip data.zip
+
+===============================
+
+还有更多相关的命令如下：
+
+1. 我想把一个文件abc.txt和一个目录dir1压缩成为yasuo.zip：
+
+＃ zip -r yasuo.zip abc.txt dir1
+
+2.我下载了一个yasuo.zip文件，想解压缩：
+
+\# unzip yasuo.zip
+
+3.我当前目录下有abc1.zip，abc2.zip和abc3.zip，我想一起解压缩它们：
+
+＃ unzip abc\?.zip
+
+注释：?表示一个字符，如果用*表示任意多个字符。
+
+4.我有一个很大的压缩文件large.zip，我不想解压缩，只想看看它里面有什么：
+
+\# unzip -v large.zip
+
+5.我下载了一个压缩文件large.zip，想验证一下这个压缩文件是否下载完全了
+
+\# unzip -t large.zip
+
+6.我用-v选项发现music.zip压缩文件里面有很多目录和子目录，并且子目录中其实都是歌曲mp3文件，我想把这些文件都下载到第一级目录，而不是一层一层建目录：
+
+\# unzip -j music.zip

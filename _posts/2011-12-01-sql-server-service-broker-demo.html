@@ -1,0 +1,133 @@
+---
+title: SQL Server Service Broker Demo
+author: windea
+layout: post
+permalink: /archives/133.html
+categories:
+  - 未分类
+---
+SQL Server Service Broker Demo
+
+软件要求：SQL Server 2005 企业版
+
+必要条件：应该对Service Broker的基本概念如消息类型、约定、服务、队列、会话、在会话上发送消息和接收消息有一个基本的了解。
+
+&#8211;Service Broker 简介  
+Service Broker是使SQL Server成为一个构建可靠的分布式异步应用程序平台。  
+Service Broker并不是一个通用的消息处理系统。  
+Service Broker支持事务性消息处理，事务性消息处理是保证消息只被处理一次且按顺序处理的唯一方法。  
+&#8211;应用场景  
+1 可靠的面向服务构架Service Oriented Architecture (SOA)  
+2 异步处理：数据仓库每天夜间进行的数据抽取工作
+
+&#8211;1 创建名为:Apple的数据库，启动Service Broker  
+USE master  
+IF EXISTS(SELECT * FROM sys.databases where name = &#8216;Apple&#8217;)  
+DROP DATABASE Apple  
+CREATE DATABASE Apple  
+ALTER DATABASE Apple  
+SET ENABLE_BROKER  &#8211;启动Service Broker  
+GO
+
+&#8211;2 创建一张名为Sales的表  
+USE Apple  
+CREATE TABLE Sales  
+(  
+SaleID INT IDENTITY(1,1),  
+SaleDate SMALLDATETIME,  
+SaleAmount MONEY,  
+ItemsSold INT  
+);  
+GO
+
+&#8211;3 为使用Service Broker组件，创建MESSAGE TYPE和CONTRACT对象  
+CREATE MESSAGE TYPE [RecordSale] VALIDATION = NONE;  
+CREATE CONTRACT [SalesContract]  
+(  
+[RecordSale] SENT BY INITIATOR  
+);  
+GO
+
+&#8211;4 建立SalesQueue队列和SalesService服务(接收消息的队列和服务)  
+CREATE QUEUE [SalesQueue];  
+CREATE SERVICE \[SalesService] ON QUEUE [SalesQueue\] ([SalesContract]);  
+GO
+
+&#8211;5 建立RecordSalesQueue队列和RecordSalesService服务(发送消息的队列和服务)  
+CREATE QUEUE [RecordSalesQueue];  
+CREATE SERVICE [RecordSalesService] ON QUEUE [RecordSalesQueue];  
+GO
+
+&#8211;6 激活接收队列  
+ALTER QUEUE [SalesQueue] WITH ACTIVATION  
+(  
+STATUS = ON,  
+MAX\_QUEUE\_READERS = 1,  
+PROCEDURE\_NAME = SP\_RecordSaleMessage,  
+EXECUTE AS OWNER  
+);  
+GO
+
+&#8211;消息发送端存储过程  
+CREATE PROCEDURE SP_SendSalesInfo(@SaleDate SMALLDATETIME, @SaleAmount MONEY, @ItemsSold INT)  
+AS  
+BEGIN  
+DECLARE @MessageBody XML  
+CREATE TABLE #ProcParams  
+(  
+SaleDate SMALLDATETIME,  
+SaleAmount MONEY,  
+ItemsSold INT  
+)  
+INSERT INTO #ProcParams(SaleDate,SaleAmount, ItemsSold)  
+VALUES(@SaleDate, @SaleAmount, @ItemsSold)
+
+SELECT @MessageBody = (SELECT * FROM #ProcParams FOR XML PATH (&#8216;Params&#8217;), TYPE);
+
+DECLARE @Handle UNIQUEIDENTIFIER;
+
+BEGIN DIALOG CONVERSATION @Handle  
+FROM SERVICE [RecordSalesService]  
+TO SERVICE &#8216;SalesService&#8217;  
+ON CONTRACT [SalesContract]  
+WITH ENCRYPTION = OFF;
+
+SEND ON CONVERSATION @Handle  
+MESSAGE TYPE \[RecordSale\](@MessageBody);  
+END  
+GO
+
+&#8211; &#8211;消息接收端存储过程  
+CREATE PROCEDURE SP_RecordSaleMessage  
+AS  
+BEGIN  
+SET NOCOUNT ON;  
+DECLARE @Handle UNIQUEIDENTIFIER;  
+DECLARE @MessageType SYSNAME;  
+DECLARE @Message XML  
+DECLARE @SaleDate DATETIME  
+DECLARE @SaleAmount MONEY  
+DECLARE @ItemsSold INT;
+
+RECEIVE TOP (1)  
+@Handle = conversation_handle,  
+@MessageType = message\_type\_name,  
+@Message = message_body  
+FROM [SalesQueue];
+
+IF(@Handle IS NOT NULL AND @Message IS NOT NULL)  
+BEGIN  
+&#8211;使用XQuery语句从XML文件中提取数据  
+SELECT @SaleDate = CAST(CAST(@Message.query(&#8216;/Params/SaleDate/text()&#8217;) AS NVARCHAR(MAX)) AS DATETIME)  
+SELECT @SaleAmount = CAST(CAST(@Message.query(&#8216;/Params/SaleAmount/text()&#8217;) AS NVARCHAR(MAX)) AS MONEY)  
+SELECT @ItemsSold = CAST(CAST(@Message.query(&#8216;/Params/ItemsSold/text()&#8217;) AS NVARCHAR(MAX)) AS INT)
+
+INSERT INTO Sales(SaleDate ,SaleAmount ,ItemsSold )  
+VALUES(@SaleDate,@SaleAmount,@ItemsSold);  
+END  
+END  
+GO
+
+&#8211; 测试程序  
+EXECUTE usp_SendSalesInfo &#8217;1/9/2005&#8242;,30,90  
+SELECT * FROM Sales;
