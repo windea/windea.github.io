@@ -1,4 +1,11 @@
+markdown: rdiscount
+permalink: /:title/
 encoding: utf-8
 url: http://www.iamyuchao.com
 name: I am Yu Chao
+author: Lucas Yu
+pygments: true
+safe: true
+paginate: 20
+about: ""
 description: 
