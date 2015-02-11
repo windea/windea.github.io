@@ -17,6 +17,8 @@ comments: no
 
 GitHub : [http://github.com/{{ site.github }}](http://github.com/{{ site.github }})
 
+摄影作品 : [http://windea.lofter.com/](http://windea.lofter.com/)
+
 ----
 
 {% if site.weibo %}
