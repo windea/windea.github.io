@@ -62,33 +62,12 @@ layout: default
 
                 <hr style="visibility: hidden;">
 
-                {% if site.duoshuo_share && site.duoshuo_username %}
-                <!-- 多说 Share start -->
-                <div class="ds-share"
-                    style="text-align: right"
-                    data-thread-key="{{page.id}}"
-                    data-title="{{page.title}}"
-                    data-url="{{site.url}}{{site.baseurl}}{{page.url}}"
-                    data-images="{{ site.url }}{{site.baseurl}}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}"
-                    data-content="{{ content | strip_html | truncate:80 }} | {{ site.SEOTitle }} " >
-                    <div class="ds-share-inline">
-                      <style> 
-                        .ds-share-icons-16 {display:none;} 
-                      </style>
-                      <ul class="ds-share-icons-16">
-                        <li data-toggle="ds-share-icons-more"><a class="ds-more" href="#">分享到：</a></li>
-                        <li><a class="ds-wechat flat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-                        <li><a class="ds-weibo flat" href="javascript:void(0);" data-service="weibo">微博</a></li>
-                        <li><a class="ds-douban flat" href="javascript:void(0);" data-service="douban">豆瓣</a></li>
-                      </ul>
-                      <div class="ds-share-icons-more">
-                      </div>
-                    </div>
-                <hr>
-                </div>
-                <!-- 多说 Share end-->
-                {% endif %}
-
+               |<!-- JiaThis Button BEGIN -->
+                <script type="text/javascript">
+                var jiathis_config = {data_track_clickback:'true'};
+                </script>
+                <script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;uid=2008731" charset="utf-8"></script>
+                <!-- JiaThis Button END -->
 
                 <ul class="pager">
                     {% if page.previous.url %}
@@ -110,17 +89,18 @@ layout: default
                 </ul>
 
 
-                {% if site.duoshuo_username %}
-                <!-- 多说评论框 start -->
-                <div class="comment">
-                    <div class="ds-thread"
-                        data-thread-key="{{page.id}}"
-                        data-title="{{page.title}}"
-                        data-url="{{site.url}}{{site.baseurl}}{{page.url}}" >
-                    </div>
-                </div>
-                <!-- 多说评论框 end -->
-                {% endif %}
+                <!-- 网易云跟帖 start -->
+                <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+                <script>
+                  var cloudTieConfig = {
+                    url: document.location.href, 
+                    sourceId: "",
+                    productKey: "5ad0872bd4804c3b96c354fc97bb4f94",
+                    target: "cloud-tie-wrapper"
+                  };
+                </script>
+                <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+                <!-- 网易云跟帖 end -->
 
                 {% if site.disqus_username %}
                 <!-- disqus 评论框 start -->
