@@ -1,26 +1,25 @@
 ---
-title: '404 培鸡诺特方的'
-layout: page
+layout: default
+description: "你来到了没有知识的荒原 :("
+header-img: "img/404-bg.jpg"
+permalink: /404.html
 ---
 
-<script>
-var posts =
-{
-{% for post in site.posts %} {% if post.thread %}
-"{{ post.thread }}" : "{{ post.url }}",{% endif %}{% endfor %}
-};
 
-var path = location.pathname;
-if(path.charAt(path.length - 1) == '/') path = path.substring(0, path.length - 1);
-var name = path.substring(path.lastIndexOf('/') + 1);
-var url = posts[name];
-if (url)
-{
-	document.write("您访问的文章已经转移到新网址，正在为您转跳到 <a href=" + url + ">" + url + "</a>");
-	location.href = url;
-}
-else
-{
-	document.write("文章或附件未找到，请转到 <a href='/categories'>分类</a> 或返回 <a href='/'>首页</a>。如有问题请联系 <a href='mailto:{{ site.email }}'>{{ site.email }}</a><iframe scrolling='no' frameborder='0' src='http://yibo.iyiyun.com/js/yibo404/key/7349' width='640' height='462' style='display:block;'></iframe>");
-}
+<!-- Page Header -->
+<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<div class="site-heading" id="tag-heading">
+					<h1>404</h1>
+					<span class="subheading">{{ page.description }}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<script>
+	document.body.classList.add('page-fullscreen');
 </script>
