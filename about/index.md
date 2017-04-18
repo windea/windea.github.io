@@ -1,5 +1,5 @@
 ---
-title: 关于
+title: ABOUT
 layout: page
 comments: no
 ---
