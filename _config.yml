@@ -1,9 +1,9 @@
 # Site settings
-title: YuChao Blog
-SEOTitle: 喻超的博客 | YuChao Blog
+title: YuChao‘s Blog
+SEOTitle: 喻超的博客 | YuChao's Blog
 header-img: img/home-bg.jpg
 email: windea.yu@gmail.com
-description: "关于前端与设计、诗和远方 | 喻超，IamYuChao | 这里是 @喻超 的个人博客，与你一起发现更大的世界。"
+description: "关于自由与梦想 | 喻超，IamYuChao | 这里是 @喻超 的个人博客，与你一起发现更大的世界。"
 keyword: "喻超, 喻超，IamYuChaoao, windea, Lucas, LucasYu, @windea"
 url: "http://www.iamyuchao.com"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
@@ -60,7 +60,7 @@ duoshuo_share: true                     # set to false if you want to use Commen
 
 # Analytics settings
 # Baidu Analytics 
-ba_track_id: [your track id]
+ba_track_id: 0128a45bf555ee1996ad009eccde46af
 
 # Google Analytics
 # ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
