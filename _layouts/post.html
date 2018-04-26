@@ -41,6 +41,17 @@ layout: default
                     <h2 class="subheading">{{ page.subtitle }}</h2>
                     {% comment %} endif {% endcomment %}
                     <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
+                    <!-- JiaThis Button BEGIN -->
+                    <div class="jiathis_style_24x24">
+	                   <a class="jiathis_button_weixin"></a>
+                   	   <a class="jiathis_button_tsina"></a>
+                       <a class="jiathis_button_douban"></a>
+	               	   <a class="jiathis_button_qzone"></a>
+	               	   <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	               	   <a class="jiathis_counter_style"></a>
+               	    </div>
+                    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+                    <!-- JiaThis Button END -->
                 </div>
             </div>
         </div>
@@ -82,7 +93,7 @@ layout: default
             </ul>
 
          <!-- JiaThis Button BEGIN -->
-         <script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?btn=r3.gif" charset="utf-8"></script>
+         <script type="text/javascript" src="http://v3.jiathis.com/code_mini/jiathis_r.js?move=0&amp;btn=r3.gif" charset="utf-8"></script>
          <!-- JiaThis Button END -->
 
          <div class="comment">
