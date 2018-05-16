@@ -7,7 +7,7 @@ author: Lucas Yu
 layout: post
 
 categories:
-  - 私人
+  - Personal
 
 ---
 
