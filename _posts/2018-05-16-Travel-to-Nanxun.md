@@ -6,8 +6,7 @@ author: Lucas Yu
 
 layout: post
 
-categories:
-  -Personal
+categories: Personal
 
 ---
 
