@@ -1,7 +1,7 @@
 {
     "name": "YuChao's blog",
     "title": "YuChao's Blog",
-    "author": "xxx <xxx@gmail.com>",
+    "author": "xxxx <xxxx@gmail.com>",
     "version": "1.7.0",
     "homepage": "http://windea.github.io",
     "repository": {
@@ -26,3 +26,4 @@
         "cafe"   : "git co gitcafe-pages; git merge master; git push gitcafe gitcafe-pages:gitcafe-pages --tag; git co master;"
     }
 }
+
