@@ -8,7 +8,141 @@
     <link rel="stylesheet" id="jt-headers-css" href="./SourceFiles/jt-headers.css" type="text/css" media="all">
     <link rel="stylesheet" id="jt-content-elements-css" href="./SourceFiles/jt-content-elements.css" type="text/css" media="all">
     <link rel="stylesheet" id="theme-child-style-css" href="./SourceFiles/style(3).css" type="text/css" media="">
-    <script type="text/javascript" src="./SourceFiles/jquery.min.js" id="jquery-core-js"></script>
+    <script type="text/javascript" src="./SourceFiles/jquery.min.js"></script>
+    <script type="text/javascript">
+    String.prototype.format = function(args) {
+        var result = this;
+        if (arguments.length > 0) {
+            if (arguments.length == 1 && typeof(args) == "object") {
+                for (var key in args) {
+                    if (args[key] != undefined) {
+                        var reg = new RegExp("({" + key + "})", "g");
+                        result = result.replace(reg, args[key]);
+                    }
+                }
+            } else {
+                for (var i = 0; i < arguments.length; i++) {
+                    if (arguments[i] != undefined) {
+                        var reg = new RegExp("({)" + i + "(})", "g");
+                        result = result.replace(reg, arguments[i]);
+                    }
+                }
+            }
+        }
+        return result;
+    }
+    </script>
+    <script type="text/javascript">
+    var menuJson = {
+        "Menus": [
+            { "MenuTitle": "智己汽车敏捷转型文档库", "MenuLink": "https://xfmkp6q7le.feishu.cn/drive/folder/fldcn7XxDEXKoJi08zQl7qW10Te" },
+            { "MenuTitle": "角色职责", "MenuLink": "javascript:void(0);", 
+              SubMenus: [
+                  { "MenuTitle": "业务", "MenuLink": "javascript:void(0);" }, 
+                  { "MenuTitle": "PO", "MenuLink": "javascript:void(0);" }, 
+                  { "MenuTitle": "UI/UX", "MenuLink": "javascript:void(0);" }, 
+                  { "MenuTitle": "研发团队", "MenuLink": "javascript:void(0);" }, 
+              ]
+            },
+            { "MenuTitle": "关键活动指南", "MenuLink": "javascript:void(0);", 
+              SubMenus: [
+                  { "MenuTitle": "业务梳理会", "MenuLink": "https://xfmkp6q7le.feishu.cn/file/boxcn2zWUJsYiWvqN2YlvZQaFDd" }, 
+                  { "MenuTitle": "产品组每日站会", "MenuLink": "https://xfmkp6q7le.feishu.cn/file/boxcn2zWUJsYiWvqN2YlvZQaFDd" }, 
+                  { "MenuTitle": "产品需求填充会", "MenuLink": "https://xfmkp6q7le.feishu.cn/file/boxcn2zWUJsYiWvqN2YlvZQaFDd" }, 
+                  { "MenuTitle": "需求梳理会", "MenuLink": "https://xfmkp6q7le.feishu.cn/file/boxcn2zWUJsYiWvqN2YlvZQaFDd" }, 
+              ]
+            },
+            { "MenuTitle": "培训资料", "MenuLink": "javascript:void(0);", 
+              SubMenus: [
+                  { "MenuTitle": "敏捷通识培训-PPT", "MenuLink": "https://xfmkp6q7le.feishu.cn/file/boxcnqSmbn8isYH0uhoPOHgFpnb" }, 
+                  { "MenuTitle": "用户故事培训-PPT", "MenuLink": "https://xfmkp6q7le.feishu.cn/file/boxcnRMes0hbROTNkTWfhuSSI1d" }, 
+                  { "MenuTitle": "用户故事培训-课程视频", "MenuLink": "https://xfmkp6q7le.feishu.cn/file/boxcncpZNuIMVuLYjP0H0kkEgYb" },
+              ]
+            },
+            { "MenuTitle": "COE 看板", "MenuLink": "https://xfmkp6q7le.feishu.cn/base/bascnlstPvZb7JEqWe6R06DaGLc" },
+            { "MenuTitle": "APP产品路线", "MenuLink": "javascript:void(0);", 
+              SubMenus: [
+                  { "MenuTitle": "IM APP ROADMAP", "MenuLink": "https://xfmkp6q7le.feishu.cn/sheets/shtcnMgRyOWywcW3NBQek2ZiE7d" }, 
+                  { "MenuTitle": "IM APP产品看板", "MenuLink": "https://xfmkp6q7le.feishu.cn/base/bascnXJ6QoaLPaHqSgWfxhxeADb?table=tbllPmGS3YskBsz6&view=vewJCVojlf" }, 
+              ]
+            },
+            { "MenuTitle": "敏捷试点-车联车控团队", "MenuLink": "javascript:void(0);", 
+              SubMenus: [
+                  { "MenuTitle": "Sprint0辅导准备及初期工作安排", "MenuLink": "https://xfmkp6q7le.feishu.cn/sheets/shtcnRIuRuVxVXUjAmy4vHhO4yg" }, 
+                  { "MenuTitle": "看板", "MenuLink": "javascript:void(0);" }, 
+                  { "MenuTitle": "团队日历", "MenuLink": "https://xfmkp6q7le.feishu.cn/sheets/shtcnPtw76km2Fal8tUNPcySq6b?from=from_lark_index_search" }, 
+                  { "MenuTitle": "日常辅导记录", "MenuLink": "javascript:void(0);" }, 
+              ]
+            },
+            { "MenuTitle": "敏捷试点-车服团队", "MenuLink": "javascript:void(0);", 
+              SubMenus: [
+                  { "MenuTitle": "Sprint0辅导准备及初期工作安排", "MenuLink": "https://xfmkp6q7le.feishu.cn/sheets/shtcncP7gHRV73LLyuP98PE17Jc" }, 
+                  { "MenuTitle": "看板", "MenuLink": "javascript:void(0);" }, 
+                  { "MenuTitle": "团队日历", "MenuLink": "javascript:void(0);" }, 
+                  { "MenuTitle": "日常辅导记录", "MenuLink": "javascript:void(0);" }, 
+              ]
+            },
+        ]
+    };
+
+    function buildMenu(menuJson) {
+        var singleMenu = '<li id="menu-item-34655" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34655"><a href="{0}" target="_blank">{1}</a></li>';
+        var parentMenu = '<li id="menu-item-30038" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-30038 dropdown"><a href="{0}" target="_blank" data-toggle="dropdown" class="dropdown-toggle sub-collapser">{1}<b class="caret"></b></a><ul role="menu" class=" dropdown-menu" style="display: none;">';
+        var childMenu = '<li id="menu-item-30039" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30039"><a href="{0}" target="_blank">{1}</a></li>';
+        var parentMenuEnd = '</ul></li>';
+
+        var menuHtml = [];
+        menuJson.Menus.forEach(function(menu) {
+            if (menu.SubMenus) {
+                //has subMenu
+                menuHtml.push(parentMenu.format(menu.MenuLink, menu.MenuTitle));
+                menu.SubMenus.forEach(function(subMenu) {
+                    menuHtml.push(childMenu.format(subMenu.MenuLink, subMenu.MenuTitle));
+                });
+                menuHtml.push(parentMenuEnd);
+            } else {
+                menuHtml.push(singleMenu.format(menu.MenuLink, menu.MenuTitle));
+            }
+        });
+        $("#menu-create-menu").html(menuHtml.join(""));
+    }
+
+    $(document).ready(function() {
+        buildMenu(menuJson);
+    });
+    </script>
+    <script type="text/javascript">
+    var trainMapJson = {
+        "Areas": [
+            { "AreaTitle":"业务路线图", "AreaCoords":"147,47,230,80", "AreaLink":"javascript:void(0);"},
+            { "AreaTitle":"产品路线图", "AreaCoords":"150,85,231,115", "AreaLink":"https://xfmkp6q7le.feishu.cn/sheets/shtcnMgRyOWywcW3NBQek2ZiE7d"},
+        ]
+    };
+
+    var CriticalActivityMapJson = {
+        "Areas": [
+            { "AreaTitle":"业务梳理会", "AreaCoords":"95,43,255,136", "AreaLink":"https://xfmkp6q7le.feishu.cn/file/boxcn2zWUJsYiWvqN2YlvZQaFDd"},
+            { "AreaTitle":"产品组每日站会", "AreaCoords":"39,233,245,328", "AreaLink":"https://xfmkp6q7le.feishu.cn/file/boxcn2zWUJsYiWvqN2YlvZQaFDd"},
+            { "AreaTitle":"产品需求填充会", "AreaCoords":"485,189,664,214", "AreaLink":"https://xfmkp6q7le.feishu.cn/file/boxcn2zWUJsYiWvqN2YlvZQaFDd"},
+            { "AreaTitle":"需求梳理会", "AreaCoords":"663,43,749,60", "AreaLink":"https://xfmkp6q7le.feishu.cn/file/boxcn2zWUJsYiWvqN2YlvZQaFDd"},
+        ]
+    };
+
+    function buildMaps(container, mapJson) {
+        var map = '<area shape="rect" coords="{1}" title="{0}" alt="{0}" data-layer="1" cursor="pointer" href="{2}" target="_blank">';
+
+        var mapHtml = [];
+        mapJson.Areas.forEach(function(area) {
+            mapHtml.push(map.format(area.AreaTitle, area.AreaCoords, area.AreaLink));
+        });
+        $(container).html(mapHtml.join(""));
+    }
+
+    $(document).ready(function() {
+        buildMaps("#Train", trainMapJson);
+        buildMaps("#CriticalActivity", CriticalActivityMapJson);
+    });
+    </script>
 </head>
 
 <body class="home" id="ls-global">
@@ -31,59 +165,6 @@
                         <div id="main-nav" class="collapse navbar-collapse">
                             <div class="menu-main-menu-container">
                                 <ul id="menu-create-menu" class="nav navbar-nav navbar-left jt-main-nav">
-                                    <li id="menu-item-34655" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34655"><a href="https://xfmkp6q7le.feishu.cn/drive/folder/fldcn7XxDEXKoJi08zQl7qW10Te" target="_blank">智己汽车敏捷转型文档库</a></li>
-                                    <li id="menu-item-30038" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-30038 dropdown">
-                                        <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle sub-collapser">角色职责<b class="caret"></b></a>
-                                        <ul role="menu" class=" dropdown-menu" style="display: none;">
-                                            <li id="menu-item-30039" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30039"><a href="javascript:void(0);">业务</a></li>
-                                            <li id="menu-item-30040" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30040"><a href="javascript:void(0);">PO</a></li>
-                                            <li id="menu-item-30040" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30040"><a href="javascript:void(0);">UI/UX</a></li>
-                                            <li id="menu-item-30040" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30040"><a href="javascript:void(0);">研发团队</a></li>
-                                        </ul>
-                                    </li>
-                                    <li id="menu-item-30038" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-30038 dropdown">
-                                        <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle sub-collapser">关键活动指南<b class="caret"></b></a>
-                                        <ul role="menu" class=" dropdown-menu" style="display: none;">
-                                            <li id="menu-item-30040" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30040"><a href="https://xfmkp6q7le.feishu.cn/file/boxcn2zWUJsYiWvqN2YlvZQaFDd" target="_blank">业务梳理会</a></li>
-                                            <li id="menu-item-30039" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30039"><a href="https://xfmkp6q7le.feishu.cn/file/boxcn2zWUJsYiWvqN2YlvZQaFDd" target="_blank">产品组每日站会</a></li>
-                                            <li id="menu-item-30039" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30039"><a href="https://xfmkp6q7le.feishu.cn/file/boxcn2zWUJsYiWvqN2YlvZQaFDd" target="_blank">产品需求填充会</a></li>
-                                            <li id="menu-item-30039" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30039"><a href="https://xfmkp6q7le.feishu.cn/file/boxcn2zWUJsYiWvqN2YlvZQaFDd" target="_blank">需求梳理会</a></li>
-                                        </ul>
-                                    </li>
-                                    <li id="menu-item-30038" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-30038 dropdown">
-                                        <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle sub-collapser">培训资料<b class="caret"></b></a>
-                                        <ul role="menu" class=" dropdown-menu" style="display: none;">
-                                            <li id="menu-item-30040" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30040"><a href="https://xfmkp6q7le.feishu.cn/file/boxcnqSmbn8isYH0uhoPOHgFpnb" target="_blank">敏捷通识培训-PPT</a></li>
-                                            <li id="menu-item-30039" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30039"><a href="https://xfmkp6q7le.feishu.cn/file/boxcnRMes0hbROTNkTWfhuSSI1d" target="_blank">用户故事培训-PPT</a></li>
-                                            <li id="menu-item-30039" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30039"><a href="https://xfmkp6q7le.feishu.cn/file/boxcncpZNuIMVuLYjP0H0kkEgYb" target="_blank">用户故事培训-课程视频</a></li>
-                                        </ul>
-                                    </li>
-                                    <li id="menu-item-34655" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-34655"><a href="https://xfmkp6q7le.feishu.cn/base/bascnlstPvZb7JEqWe6R06DaGLc" target="_blank">COE 看板</a></li>
-                                    <li id="menu-item-30038" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-30038 dropdown">
-                                        <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle sub-collapser">APP产品路线<b class="caret"></b></a>
-                                        <ul role="menu" class=" dropdown-menu" style="display: none;">
-                                            <li id="menu-item-30039" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30039"><a href="https://xfmkp6q7le.feishu.cn/sheets/shtcnMgRyOWywcW3NBQek2ZiE7d" target="_blank">IM APP ROADMAP</a></li>
-                                            <li id="menu-item-30039" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30039"><a href="https://xfmkp6q7le.feishu.cn/base/bascnXJ6QoaLPaHqSgWfxhxeADb?table=tbllPmGS3YskBsz6&view=vewJCVojlf" target="_blank">IM APP产品看板</a></li>
-                                        </ul>
-                                    </li>
-                                    <li id="menu-item-30038" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-30038 dropdown">
-                                        <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle sub-collapser">敏捷试点-车联车控团队<b class="caret"></b></a>
-                                        <ul role="menu" class=" dropdown-menu" style="display: none;">
-                                            <li id="menu-item-30040" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30040"><a href="https://xfmkp6q7le.feishu.cn/sheets/shtcnRIuRuVxVXUjAmy4vHhO4yg" target="_blank">Sprint0辅导准备及初期工作安排</a></li>
-                                            <li id="menu-item-30040" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30040"><a href="javascript:void(0);" target="_blank">看板</a></li>
-                                            <li id="menu-item-30040" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30040"><a href="https://xfmkp6q7le.feishu.cn/sheets/shtcnPtw76km2Fal8tUNPcySq6b?from=from_lark_index_search" target="_blank">团队日历</a></li>
-                                            <li id="menu-item-30040" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30040"><a href="javascript:void(0);" target="_blank">日常辅导记录</a></li>
-                                        </ul>
-                                    </li>
-                                    <li id="menu-item-30038" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-30038 dropdown">
-                                        <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle sub-collapser">敏捷试点-车服团队<b class="caret"></b></a>
-                                        <ul role="menu" class=" dropdown-menu" style="display: none;">
-                                            <li id="menu-item-30040" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30040"><a href="https://xfmkp6q7le.feishu.cn/sheets/shtcncP7gHRV73LLyuP98PE17Jc" target="_blank">Sprint0辅导准备及初期工作安排</a></li>
-                                            <li id="menu-item-30040" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30040"><a href="javascript:void(0);" target="_blank">看板</a></li>
-                                            <li id="menu-item-30040" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30040"><a href="javascript:void(0);" target="_blank">团队日历</a></li>
-                                            <li id="menu-item-30040" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30040"><a href="javascript:void(0);" target="_blank">日常辅导记录</a></li>
-                                        </ul>
-                                    </li>
                                 </ul>
                             </div>
                             <div class="menu-metas navbar-default navbar-right jt-shop-search">
@@ -98,18 +179,12 @@
         <div class="entry-content page-container content-ctrl" style="padding-top: 20px;">
             <div class="container">
                 <img style="min-height: 0px; min-width: 0px; height: auto; max-width: 100%;" usemap="#Train" src="./SourceFiles/Train.png" width="892" height="430">
-                <map name="Train">
-                    <area shape="rect" coords="147,47,230,80" title="业务路线图" alt="业务路线图" data-layer="1" cursor="pointer" href="javascript:void(0);" target="_blank">
-                    <area shape="rect" coords="150,85,231,115" title="产品路线图" alt="产品路线图" data-layer="1" cursor="pointer" href="https://xfmkp6q7le.feishu.cn/sheets/shtcnMgRyOWywcW3NBQek2ZiE7d" target="_blank">
+                <map id="Train" name="Train">
                 </map>
             </div>
             <div class="container">
                 <img style="min-height: 0px; min-width: 0px; height: auto; max-width: 100%;" usemap="#CriticalActivity" src="./SourceFiles/CriticalActivity.png" width="892" height="430">
                 <map name="CriticalActivity">
-                    <area shape="rect" coords="95,43,255,136" title="业务梳理会" alt="业务梳理会" data-layer="1" cursor="pointer" href="https://xfmkp6q7le.feishu.cn/file/boxcn2zWUJsYiWvqN2YlvZQaFDd" target="_blank">
-                    <area shape="rect" coords="39,233,245,328" title="产品组每日站会" alt="产品组每日站会" data-layer="1" cursor="pointer" href="https://xfmkp6q7le.feishu.cn/file/boxcn2zWUJsYiWvqN2YlvZQaFDd" target="_blank">
-                    <area shape="rect" coords="485,189,664,214" title="产品需求填充会" alt="产品需求填充会" data-layer="1" cursor="pointer" href="https://xfmkp6q7le.feishu.cn/file/boxcn2zWUJsYiWvqN2YlvZQaFDd" target="_blank">
-                    <area shape="rect" coords="663,43,749,60" title="需求梳理会" alt="需求梳理会" data-layer="1" cursor="pointer" href="https://xfmkp6q7le.feishu.cn/file/boxcn2zWUJsYiWvqN2YlvZQaFDd" target="_blank">
                 </map>
             </div>
         </div>
