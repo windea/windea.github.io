@@ -112,14 +112,17 @@
 
     var trainMapJson = {
         "Areas": [
+            /*
             { "AreaTitle":"业务概念", "AreaCoords":"66,46,145,78", "AreaLink":"https://xfmkp6q7le.feishu.cn/docs/doccnCqcFmabsG70mIHq94RE2UO"},
             { "AreaTitle":"业务路线图", "AreaCoords":"180,46,286,78", "AreaLink":"https://xfmkp6q7le.feishu.cn/docs/doccnYGvqDJV7RlkP5Cf6cdikYd"},
             { "AreaTitle":"业务流程（下阶段）", "AreaCoords":"316,46,482,78", "AreaLink":"https://xfmkp6q7le.feishu.cn/docs/doccnMdl74VceitQIEzcI051J6f"},
             { "AreaTitle":"业务流程（SPn-2）", "AreaCoords":"502,46,678,78", "AreaLink":"https://xfmkp6q7le.feishu.cn/docs/doccnd3Mmit07BgFANLXYpOn4sG"},
             { "AreaTitle":"产品概念", "AreaCoords":"66,110,145,142", "AreaLink":"https://xfmkp6q7le.feishu.cn/docs/doccnjlyQJhzUbD4UuYxaVpR2Md"},
+            */
             { "AreaTitle":"产品路线图", "AreaCoords":"180,110,286,142", "AreaLink":"https://xfmkp6q7le.feishu.cn/base/bascnXJ6QoaLPaHqSgWfxhxeADb?table=tblKE4zELt7vAc1x&view=vew3HqFwSU"},
-            { "AreaTitle":"PRD（下阶段）", "AreaCoords":"316,110,482,142", "AreaLink":"https://xfmkp6q7le.feishu.cn/docs/doccneWClu8rb1nVmYKHDnf8Axc"},
-            { "AreaTitle":"PRD（SPn-1）", "AreaCoords":"502,110,678,142", "AreaLink":"https://xfmkp6q7le.feishu.cn/docs/doccn8FeWtCvv3rbaE0MI8h1Ame"},
+            { "AreaTitle":"PRD（下阶段）", "AreaCoords":"316,110,482,142", "AreaLink":"https://xfmkp6q7le.feishu.cn/docs/doccn1ofD89z4AvAlsC4Cqhpgth"},
+            { "AreaTitle":"PRD（SPn-1）", "AreaCoords":"502,110,678,142", "AreaLink":"https://xfmkp6q7le.feishu.cn/docs/doccn1ofD89z4AvAlsC4Cqhpgth"},
+            /*
             { "AreaTitle":"技术概念", "AreaCoords":"66,176,145,206", "AreaLink":"https://xfmkp6q7le.feishu.cn/docs/doccn2N12rC6Q6HzQqcL6duKUnc"},
             { "AreaTitle":"技术路线图", "AreaCoords":"180,176,286,206", "AreaLink":"https://xfmkp6q7le.feishu.cn/docs/doccnY74MoStghHY8V946nyIBFc"},
             { "AreaTitle":"技术需求（下阶段）", "AreaCoords":"316,176,482,206", "AreaLink":"https://xfmkp6q7le.feishu.cn/docs/doccnaLjerdh22EvGujn1qQKpdc"},
@@ -127,7 +130,8 @@
             { "AreaTitle":"迭代概念", "AreaCoords":"714,144,806,174", "AreaLink":"https://xfmkp6q7le.feishu.cn/docs/doccnCOsXmsscCrTbKbuL5vsQHg"},
             { "AreaTitle":"运行维护", "AreaCoords":"835,144,920,174", "AreaLink":"https://xfmkp6q7le.feishu.cn/docs/doccnbEsgOQCDLbX9xiCFza5P9g"},
             { "AreaTitle":"反馈", "AreaCoords":"862,96,928,130", "AreaLink":"https://xfmkp6q7le.feishu.cn/docs/doccnCfhW1HngIMYTsHe1uMo5ZV"},
-            { "AreaTitle":"用户", "AreaCoords":"972,148,1014,178", "AreaLink":"https://xfmkp6q7le.feishu.cn/docs/doccn4riqCCcX5WNd60yyF1ul3g"},
+            { "AreaTitle":"用户", "AreaCoords":"972,148,1014,178", "AreaLink":"https://xfmkp6q7le.feishu.cn/docs/doccn4riqCCcX5WNd60yyF1ul3g"},*/
+
         ]
     };
 
