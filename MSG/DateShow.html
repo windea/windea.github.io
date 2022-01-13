@@ -4,15 +4,13 @@
 <meta charset="UTF-8" />
 	<title></title>
 	<script type="text/javascript" src="DateShow.js"></script>
-    <script type="text/javascript" src="jquery.min.js"></script>
-	<script type="text/javascript">
-		$(function () {
-			var msg = getMsg();
-			$("#msg").html(msg);
-		});
-	</script>
 </head>
 <body>
 <div id="msg"></div>
+
+	<script type="text/javascript">
+			var msg = getMsg();
+			document.getElementById("msg").innerHTML=msg;
+	</script>
 </body>
 </html>
