@@ -9,8 +9,15 @@
 <div id="msg"></div>
 
 	<script type="text/javascript">
+
+
+    function Draw(){
 			var msg = getMsg();
 			document.getElementById("msg").innerHTML=msg;
+        setTimeout("Draw()",500);
+    }
+    Draw();
+    
 	</script>
 </body>
 </html>
